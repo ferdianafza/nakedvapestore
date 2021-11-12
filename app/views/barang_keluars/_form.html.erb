@@ -1,0 +1,29 @@
+<%= form_for @barang_keluar do |form| %>
+  <% if @barang_keluar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@barang_keluar.errors.count, "error") %> prohibited this @barang_keluar from being saved:</h2>
+
+      <ul>
+        <% @barang_keluar.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- <div class="field">
+    <%= form.label :stok_id %>
+    <%= form.number_field :stok_id %>
+  </div> -->
+    <div class="form-group">
+    <%= form.select :stok_id, Stok.all.collect {|m| [ m.nama_produk, m.id ] }, { :include_blank => "Pilih Produk" }, { :class => "custom-select form",required:true }%>
+    <%= form.number_field :qty,placeholder: "Jumlah",:class => "form-control", required:true %>
+    <%= form.date_field :tanggal, start_year: 1800, end_year: Time.now.year, :class => "form-control" %>
+  </div>
+
+  <center>
+    <div class="actions">
+      <%= form.submit "Tambah Barang Keluar", class: "btn btn-primary" %>
+    </div>
+  </center>
+<% end %>

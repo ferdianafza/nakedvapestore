@@ -1,0 +1,25 @@
+<%= form_for @stok do |form| %>
+  <% if @stok.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stok.errors.count, "error") %> prohibited this @stok from being saved:</h2>
+
+      <ul>
+        <% @stok.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.text_field :nama_produk,placeholder: "Nama Produk",:class => "form-control", required:true %>
+    <%= form.number_field :qty,placeholder: "Jumlah",:class => "form-control", required:true %>
+    <%= form.number_field :modal_beli,placeholder: "Masukan Modal Beli",:class => "form-control", required:true %>
+    <%= form.number_field :harga_jual ,placeholder: "Masukan Harga Jual",:class => "form-control", required:true %>
+  </div>
+  <center>
+    <div class="actions">
+      <%= form.submit "Tambahkan", class: "btn btn-primary" %>
+    </div>
+  </center>
+<% end %>
