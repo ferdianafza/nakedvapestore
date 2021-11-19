@@ -13,8 +13,7 @@ module Vapestore
     config.time_zone =  "Asia/Jakarta"
     config.to_prepare do
       # Configure single controller layout
-      User::RegistrationsController.layout "signup"
-      User::SessionsController.layout "signup"
+
     end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
