@@ -1,7 +1,7 @@
-class HomesController < ApplicationController
-  def index
-
-    @barang_keluars = BarangKeluar.all.order(created_at: :desc).page params[:page]
+class HomeController < ApplicationController
+    before_action :authenticate_user!
+    def index
+      @barang_keluars = BarangKeluar.all.order(created_at: :desc).page params[:page]
     @barang_masuk = BarangMasuk.new
     @barang_keluar = BarangKeluar.new
     @stok = Stok.new
@@ -30,7 +30,5 @@ class HomesController < ApplicationController
       d.each do |th|
       @tahunan = @tahunan + th.to_i
       end
-
-
-  end
+    end
 end
