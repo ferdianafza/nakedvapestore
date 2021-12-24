@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'users/sessions#destroy'
   end
   resources :home
-  # get 'homes/index'
+  get 'homes/index'
   root to: 'home#index'
   resources :barang_keluars
   resources :barang_masuks
