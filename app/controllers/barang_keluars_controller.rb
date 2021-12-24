@@ -27,7 +27,6 @@ class BarangKeluarsController < ApplicationController
     @modal_beli = @stok.modal_beli
     total_harga_jual = @barang_keluar.qty.to_i * @harga_jual.to_i
     total_modal = @barang_keluar.qty.to_i * @modal_beli.to_i
-    # @barang_keluar.keuntungan = total_harga_jual - total_modal
     @barang_keluar.keuntungan = total_harga_jual - total_modal
     @barang_keluar.created_at.to_s
 
